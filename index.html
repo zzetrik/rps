@@ -4,13 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css" type="text/css">;
+    <link rel="stylesheet" href="main.css" type="text/css">
     <title>Document</title>
 </head>
 
 <body>
 
     <script>
+        function getComputer(max) {
+            return Math.floor(Math.random() * max);
+        }
+
+        let computerPlay = getComputer(3);
+
+        if (computerPlay === 0) {
+            computerPlay = "rock"
+        } else if (computerPlay === 1) {
+            computerPlay = "paper"
+        } else {
+            computerPlay = "scissors"
+        }
+
+        let play = prompt("Choose rock, paper or scissors");
+
+        if (play === "rock" || play === "paper" || play === "scissors") {
+            console.log(computerPlay);
+        } else {
+            console.log("please choose a valid option");
+        }
+
+
 
     </script>
 
