@@ -11,32 +11,104 @@
 <body>
 
     <script>
+        // let humanScore = 0;
+        // let computerScore = 0;
+
+        // function getComputer(max) {
+        //     return Math.floor(Math.random() * max);
+        // }
+
+        // let computerPlay = getComputer(3);
+
+        // if (computerPlay === 0) {
+        //     computerPlay = "rock"
+        // } else if (computerPlay === 1) {
+        //     computerPlay = "paper"
+        // } else {
+        //     computerPlay = "scissors"
+        // }
+
+        // let play = prompt("Choose rock, paper or scissors");
+
+        // if (play === "rock" || play === "paper" || play === "scissors") {
+        //     console.log(computerPlay);
+        // } else {
+        //     console.log("please choose a valid option");
+        // }
+
+        function getRandom() {
+            return Math.floor(Math.random() * 3);
+        }
+
+        function getComputerChoice() {
+            let randomVar = getRandom();
+
+            if (randomVar === 0) {
+                return "rock";
+            } else if (randomVar === 1) {
+                return "paper";
+            } else if (randomVar === 2) {
+                return "scissors";
+            }
+        }
+
+        function getHumanChoice() {
+            let humanVar = prompt("Choose rock, paper or scissors").toLowerCase();
+
+            if (humanVar === "rock" || humanVar === "paper" || humanVar === "scissors") {
+                return humanVar;
+            } else {
+                console.log("Please pick a correct option.")
+            }
+        }
+
         let humanScore = 0;
         let computerScore = 0;
 
-        function getComputer(max) {
-            return Math.floor(Math.random() * max);
+        function playGame() {
+
+            function playRound(humanChoice, computerChoice) {
+                humanChoice = getHumanChoice();
+                computerChoice = getComputerChoice();
+
+                console.log(humanChoice, computerChoice);
+
+
+                if (humanChoice === computerChoice) {
+                    console.log("It's a tie!");
+
+                } else if (humanChoice === "rock" && computerChoice === "paper") {
+                    console.log("You lose! Paper beats Rock.")
+                    computerScore++
+
+                } else if (humanChoice === "rock" && computerChoice === "scissors") {
+                    console.log("You win! Rock beats Scissors.")
+                    humanScore++
+
+                } else if (humanChoice === "paper" && computerChoice === "scissors") {
+                    console.log("You lose! Scissors beats Paper.")
+                    computerScore++
+
+                } else if (humanChoice === "paper" && computerChoice === "rock") {
+                    console.log("You win! Paper beats Rock.")
+                    humanScore++
+
+                } else if (humanChoice === "scissors" && computerChoice === "rock") {
+                    console.log("You lose! Rock beats Scissors.")
+                    computerScore++
+
+                } else if (humanChoice === "scissors" && computerChoice === "paper") {
+                    console.log("You win! Scissors beats Paper.")
+                    humanScore++
+                }
+            }
+
+            playRound();
+            playRound();
+            playRound();
+            playRound();
+            playRound();
         }
-
-        let computerPlay = getComputer(3);
-
-        if (computerPlay === 0) {
-            computerPlay = "rock"
-        } else if (computerPlay === 1) {
-            computerPlay = "paper"
-        } else {
-            computerPlay = "scissors"
-        }
-
-        let play = prompt("Choose rock, paper or scissors");
-
-        if (play === "rock" || play === "paper" || play === "scissors") {
-            console.log(computerPlay);
-        } else {
-            console.log("please choose a valid option");
-        }
-
-
 
     </script>
 
